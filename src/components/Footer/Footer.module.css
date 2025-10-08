@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 95%;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.socialMedia {
+  margin: 0;
+  margin-top: 30px;
+  padding: 0;
+
+  span {
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.logoFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  
+  img {
+    width: 8rem;
+  }
+}
+
+.pFooter {
+  font-size: 0.7rem;
+  margin-bottom: 0;
+  color: white;
+}
