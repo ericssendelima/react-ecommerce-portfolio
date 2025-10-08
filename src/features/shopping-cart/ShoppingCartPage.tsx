@@ -1,4 +1,5 @@
 import { BackToHomeButton } from "../../components/BackToHomeButton";
+import { SendOrder } from "../../components/SendOrder";
 import styles from "./ShoppingCartPage.module.css";
 
 export const ShoppingCartPage = () => {
@@ -6,6 +7,7 @@ export const ShoppingCartPage = () => {
     <div className={styles.shoppingCartPage}>
       ShoppingCartPage
       <BackToHomeButton />
+      <SendOrder />
     </div>
   );
 };

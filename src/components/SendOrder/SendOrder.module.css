@@ -1,0 +1,22 @@
+.sendOrder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 97px;
+  height: 40px;
+  margin-right: 10px;
+  box-shadow: 0 0 10px black;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
+
+  &:hover {
+    background-color: #377f3b;
+  }
+}
