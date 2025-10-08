@@ -1,5 +1,7 @@
+import styles from './ShoppingCartPage.module.css';
+
 export const ShoppingCartPage = () => {
   return (
-    <div>ShoppingCartPage</div>
+    <div className={styles.shoppingCartPage}>ShoppingCartPage</div>
   )
 }

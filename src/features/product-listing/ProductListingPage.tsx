@@ -1,5 +1,8 @@
+import styles from './ProductListingPage.module.css';
+
+
 export const ProductListingPage = () => {
   return (
-    <div>ProductListingPage</div>
+    <div className={styles.productListingPage}>ProductListingPage</div>
   )
 }

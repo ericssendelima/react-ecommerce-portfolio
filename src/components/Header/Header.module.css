@@ -1,0 +1,10 @@
+.header {
+    background-color:rgb(247, 107, 107);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 70px;
+    width: 100%;
+  }
