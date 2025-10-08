@@ -15,4 +15,8 @@
   bottom: 15px;
   left: 10px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #5f97ad;
+  }
 }

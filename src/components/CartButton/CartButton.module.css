@@ -18,6 +18,10 @@
   border-radius: 10px;
   cursor: pointer;
 
+  &:hover {
+    background-color: #5f97ad;
+  }
+
   span {
     display: flex;
     justify-content: center;
