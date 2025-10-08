@@ -1,17 +1,26 @@
-import { Routes, Route } from 'react-router'
+import { createBrowserRouter } from "react-router";
 
 //Pages
-import { ProductListingPage } from './features/product-listing'
-import { ShoppingCartPage } from './features/shopping-cart'
+import { ProductListingPage } from "./features/product-listing";
+import { ShoppingCartPage } from "./features/shopping-cart";
 
-function App() {
+//Layout
+import { Layout } from "./components/Layout";
 
-  return (
-    <Routes>
-      <Route path="/" element={<ProductListingPage />} />
-      <Route path="/cart" element={<ShoppingCartPage />} />
-    </Routes>
-  )
-}
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <ProductListingPage />,
+      },
+      {
+        path: "/cart",
+        element: <ShoppingCartPage />,
+      },
+    ],
+  },
+]);
 
-export default App
+export default router;
