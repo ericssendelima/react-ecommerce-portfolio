@@ -1,8 +1,11 @@
-import styles from './ProductListingPage.module.css';
-
+import { CartButton } from "../../components/CartButton";
+import styles from "./ProductListingPage.module.css";
 
 export const ProductListingPage = () => {
   return (
-    <div className={styles.productListingPage}>ProductListingPage</div>
-  )
-}
+    <div className={styles.productListingPage}>
+      ProductListingPage
+      <CartButton />
+    </div>
+  );
+};

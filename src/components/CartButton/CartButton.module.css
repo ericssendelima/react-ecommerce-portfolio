@@ -1,0 +1,33 @@
+.cartButton {
+  height: 45px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-shadow: 0 0 5px black;
+  position: fixed;
+  bottom: 15px;
+  right: 16px;
+  z-index: 1;
+  color: black;
+  background-color: #77abbd;
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(70, 85, 115, 0.3);
+    color: black;
+    height: 23px;
+    width: 25px;
+    padding: 15px 0;
+    margin-left: 5px;
+    border-radius: 5px;
+  }
+}
