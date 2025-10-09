@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
 import styles from "./ProductListingPage.module.css";
+import { useEffect, useState } from "react";
 
 import { Card } from "../../components/Card";
 import { CartButton } from "../../components/CartButton";
 import { ScrollToTopButton } from "../../components/ScrollToTopButton";
 
 import type { Product } from "../../types";
-import { data } from "../../data";
+
 import { useCart } from "../../hooks/useCart";
+import { onValue, ref, db } from "../../services/firebase";
 
 export const ProductListingPage = () => {
   const [productsDb, setProductsDb] = useState<Product[]>([]);
@@ -19,8 +20,17 @@ export const ProductListingPage = () => {
   useEffect(() => {
     // Simulate fetching data from an API
     if (productsDb.length === 0) {
-      setProductsDb(data);
-      setIsLoading(false);
+    onValue(
+      ref(db, `${import.meta.env.VITE_PERM_ED}/products/`),
+      (snapshot) => {
+        const data = snapshot.val();
+
+        if (data !== undefined) {
+          setProductsDb([...Object.values(data)] as Product[]);
+          setIsLoading(false);
+        }
+      },
+      (error) => alert(error));
     }
   }, []);
 
