@@ -1,8 +1,10 @@
-import { BackToHomeButton } from "../../components/BackToHomeButton";
-import { CardCart } from "../../components/CardCart";
-import { SendOrder } from "../../components/SendOrder";
-import { useCart } from "../../hooks/useCart";
 import styles from "./ShoppingCartPage.module.css";
+
+import { BackToHomeButton } from "../../components/BackToHomeButton/index";
+import { CardCart } from "../../components/CardCart/index";
+import { SendOrder } from "../../components/SendOrder/index";
+
+import { useCart } from "../../hooks/useCart";
 
 export const ShoppingCartPage = () => {
   const { cartProducts } = useCart();

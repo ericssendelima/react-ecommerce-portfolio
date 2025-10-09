@@ -1,9 +1,9 @@
 import styles from "./ProductListingPage.module.css";
 import { useEffect, useState } from "react";
 
-import { Card } from "../../components/Card";
-import { CartButton } from "../../components/CartButton";
-import { ScrollToTopButton } from "../../components/ScrollToTopButton";
+import { Card } from "../../components/Card/index";
+import { CartButton } from "../../components/CartButton/index";
+import { ScrollToTopButton } from "../../components/ScrollToTopButton/index";
 
 import type { Product } from "../../types";
 
