@@ -2,14 +2,24 @@ import { MdAddShoppingCart } from "react-icons/md";
 import styles from "./Card.module.css";
 
 import logo from "../../assets/logo.png";
+import type { Product } from "../../types";
+import { useCart } from "../../contexts/useCart";
 
-export const Card = () => {
+interface CardProps {
+  product: Product;
+}
+
+export const Card = ({ product }: CardProps) => {
+  const { cartProducts, setCartProducts } = useCart();
+
   const Detalhes = () => {
     alert("Mais detalhes do produto");
   };
+
   const Adicionar = () => {
-    alert("Produto adicionado ao carrinho");
+    setCartProducts([...cartProducts, product]);
   };
+  
   return (
     <div className={styles.card}>
       <div className={styles.header}>
@@ -17,13 +27,13 @@ export const Card = () => {
       </div>
       <div className={styles.body}>
         <div className={styles.productName}>
-          <strong>Nome do produto</strong>
+          <strong>{product.name}</strong>
         </div>
       </div>
       <div className={styles.footer}>
         <div className={styles.footerContainer}>
           <div className={styles.prodInfo}>
-            <span className={styles.price}>R$ 0.00</span>
+            <span className={styles.price}>R$ {product.preco.toFixed(2)}</span>
             <span className={styles.saibaMais} onClick={() => Detalhes()}>
               Descrição
             </span>
