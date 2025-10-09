@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router";
 
 //Pages
-import { ProductListingPage } from "./features/product-listing";
-import { ShoppingCartPage } from "./features/shopping-cart";
+import { ProductListingPage } from "./pages/product-listing";
+import { ShoppingCartPage } from "./pages/shopping-cart";
 
 //Layout
 import { Layout } from "./components/Layout";

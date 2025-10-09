@@ -1,0 +1,125 @@
+.card {
+  width: 150px;
+  height: 260px;
+  padding: 0;
+  border: none;
+  margin: 8px;
+  margin-bottom: 10px;
+  display: block;
+  justify-content: center;
+  background-color: #457b9d;
+  /* box-shadow: 0 0 3px black; */
+  border-radius: 8px;
+}
+
+.header {
+  padding: 0;
+  padding-top: 4px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.header img {
+  height: 130px;
+  width: 6rem;
+  object-fit: scale-down;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 69px;
+  padding: 0 6px 0 5px;
+  background-color: white;
+}
+
+.productName {
+  color: black;
+  font-size: 14px;
+  text-align: center;
+}
+.footerContainer {
+  /* background-color: aqua; */
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.prodInfo {
+  color: white;
+  width: 85px;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  justify-content: space-between;
+  height: 90%;
+}
+
+.price {
+  padding-top: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.saibaMais {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  font-size: 10px;
+  color: #000000;
+  background-color: #d1afab;
+  width: 65px;
+  height: 16.5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+@media (min-width: 500px) {
+  .saibaMais:hover {
+    background-color: #f1faee;
+  }
+}
+
+.adicionar {
+  /* background-color: blueviolet; */
+  width: 100%;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 0 5px 2px 8px;
+  height: 55px;
+}
+
+.buttonCard {
+  background-color: #da6e62;
+  color: black;
+  /* box-shadow: 0 0 10px black; */
+  margin-top: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 10px;
+}
+
+@media (min-width: 500px) {
+  .buttonCard:hover {
+    background-color: #f1faee;
+    color: #213b4b;
+  }
+}
