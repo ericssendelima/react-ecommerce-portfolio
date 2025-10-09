@@ -1,0 +1,125 @@
+.cardCart {
+  box-sizing: border-box;
+  display: block;
+  justify-content: center;
+  background-color: #6e8c96;
+  border-radius: 10px;
+  border: none;
+  height: 120px;
+  width: 21rem;
+  padding: 0;
+  margin-top: 20px;
+  box-shadow: 0 0 20px black;
+}
+
+.cardBody {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  /* background-color: cadetblue; */
+  padding-right: 5px;
+  height: 100%;
+  width: 100%;
+
+  img {
+    object-fit: scale-down;
+    width: 80px;
+    height: 100%;
+    margin-right: 15px;
+    box-sizing: border-box;
+    background-color: white;
+    background-size: cover;
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
+
+.infoBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  padding: 2px 0 8px 5px;
+  box-sizing: border-box;
+  margin-bottom: 1px;
+  color: black;
+
+  h5 {
+    font-size: 16px;
+    margin-top: 3px;
+  }
+
+  h6 {
+    font-size: 14px;
+  }
+}
+
+.controlsContainer {
+  box-sizing: border-box;
+  /* background-color: blueviolet; */
+  display: flex;
+  padding-left: 0;
+  justify-content: space-between;
+  width: 100%;
+  height: 30px;
+}
+
+.controls {
+  box-sizing: border-box;
+  /* background-color: rgb(77, 132, 119); */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  width: 40%;
+  /* box-shadow: 0 0 10px black; */
+  border-radius: 8px;
+  height: 30px;
+  margin: 0;
+}
+
+.quantityControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  margin: 0;
+  font-weight: bold;
+  color: rgb(13, 13, 88);
+  background-color: #38b6ff;
+  border: none;
+  box-shadow: 0 0 5px black;
+  padding: 0;
+  font-size: 20px;
+}
+
+.quantity {
+  margin: 0;
+  padding: 5px;
+  font-weight: bold;
+  height: 29px;
+  width: 25px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
+  font-size: 17px;
+  padding: 0;
+  box-shadow: 0 0 5px black;
+  background-color: #ff5733;
+  border: none;
+}

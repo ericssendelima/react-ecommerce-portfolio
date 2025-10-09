@@ -1,5 +1,8 @@
 .shoppingCartPage {
-    padding: 20px;
-    min-height: 100dvh;
-    background-color: #75adaa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 70dvh;
+  width: 100dvw;
 }

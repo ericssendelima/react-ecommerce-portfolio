@@ -43,3 +43,8 @@ ol {
   justify-content: center;
   padding-left: 0;
 }
+
+h5, h6{
+  margin: 0;
+  padding: 0;
+}
