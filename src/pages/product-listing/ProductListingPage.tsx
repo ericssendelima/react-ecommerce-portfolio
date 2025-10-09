@@ -7,7 +7,7 @@ import { ScrollToTopButton } from "../../components/ScrollToTopButton";
 
 import type { Product } from "../../types";
 import { data } from "../../data";
-import { useCart } from "../../contexts/useCart";
+import { useCart } from "../../hooks/useCart";
 
 export const ProductListingPage = () => {
   const [productsDb, setProductsDb] = useState<Product[]>([]);

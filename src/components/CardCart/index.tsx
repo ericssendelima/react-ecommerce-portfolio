@@ -4,13 +4,15 @@ import logo from "../../assets/logo.png";
 import { ImBin } from "react-icons/im";
 
 import type { Product } from "../../types";
-import { useCart } from "../../contexts/useCart";
+import { useCart } from "../../hooks/useCart";
+import { useValidatedImage } from "../../hooks/useValidatedImage";
 
 interface CardProduct {
   product: Product;
 }
 
 export const CardCart = ({ product }: CardProduct) => {
+  const imageSrc = useValidatedImage(product.image, logo);
   const { setCartProducts } = useCart();
 
   const RemoveProduct = () => {
@@ -22,7 +24,7 @@ export const CardCart = ({ product }: CardProduct) => {
   return (
     <div className={styles.cardCart}>
       <div className={styles.cardBody}>
-        <img src={logo} alt="Product Image" />
+        <img src={imageSrc} alt={product.name} />
 
         <div className={styles.infoBody}>
           <h5 className={styles.prodName}>{product.name}</h5>

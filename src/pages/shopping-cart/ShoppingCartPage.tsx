@@ -1,7 +1,7 @@
 import { BackToHomeButton } from "../../components/BackToHomeButton";
 import { CardCart } from "../../components/CardCart";
 import { SendOrder } from "../../components/SendOrder";
-import { useCart } from "../../contexts/useCart";
+import { useCart } from "../../hooks/useCart";
 import styles from "./ShoppingCartPage.module.css";
 
 export const ShoppingCartPage = () => {

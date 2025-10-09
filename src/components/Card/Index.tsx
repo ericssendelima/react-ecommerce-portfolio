@@ -1,29 +1,32 @@
-import { MdAddShoppingCart } from "react-icons/md";
 import styles from "./Card.module.css";
+import { MdAddShoppingCart } from "react-icons/md";
 
 import logo from "../../assets/logo.png";
 import type { Product } from "../../types";
-import { useCart } from "../../contexts/useCart";
+import { useCart } from "../../hooks/useCart";
+import { useValidatedImage } from "../../hooks/useValidatedImage";
 
 interface CardProps {
   product: Product;
 }
 
 export const Card = ({ product }: CardProps) => {
+  const imageSrc = useValidatedImage(product.image, logo);
+
   const { cartProducts, setCartProducts } = useCart();
 
-  const Detalhes = () => {
+  const Details = () => {
     alert("Mais detalhes do produto");
   };
 
-  const Adicionar = () => {
+  const Add = () => {
     setCartProducts([...cartProducts, product]);
   };
   
   return (
     <div className={styles.card}>
       <div className={styles.header}>
-        <img src={logo} alt="Product Image" />
+        <img src={imageSrc} alt={product.name} />
       </div>
       <div className={styles.body}>
         <div className={styles.productName}>
@@ -34,11 +37,11 @@ export const Card = ({ product }: CardProps) => {
         <div className={styles.footerContainer}>
           <div className={styles.prodInfo}>
             <span className={styles.price}>R$ {product.preco.toFixed(2)}</span>
-            <span className={styles.saibaMais} onClick={() => Detalhes()}>
+            <span className={styles.saibaMais} onClick={() => Details()}>
               Descrição
             </span>
           </div>
-          <button className={styles.buttonCard} onClick={Adicionar}>
+          <button className={styles.buttonCard} onClick={Add}>
             <span className={styles.adicionar}>
               <MdAddShoppingCart />
             </span>
