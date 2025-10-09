@@ -1,11 +1,14 @@
 # React E-commerce Portfolio
 
+[![Vercel](https://img.shields.io/badge/Vercel-live-green?logo=vercel)](https://seu-catalogo-liras.vercel.app/)
 ![Status](https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-yellow)
 ![GitHub language count](https://img.shields.io/github/languages/count/ericssendelima/react-ecommerce-portfolio)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ericssendelima/react-ecommerce-portfolio)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Uma aplicação de e-commerce moderna e responsiva, construída com as tecnologias mais recentes do ecossistema React. Este projeto serve como um portfólio para demonstrar habilidades em desenvolvimento front-end, incluindo gerenciamento de estado, componentização, consumo de APIs e boas práticas de desenvolvimento.
+
+**[➡️ Acesse a demonstração ao vivo](https://seu-catalogo-liras.vercel.app/)**
 
 <p align="center">
   <img src="./src/assets/example001.png" alt="Exemplo da Aplicação" width="800"/>
