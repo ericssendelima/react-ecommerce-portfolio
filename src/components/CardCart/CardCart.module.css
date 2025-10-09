@@ -94,6 +94,12 @@
   box-shadow: 0 0 5px black;
   padding: 0;
   font-size: 20px;
+
+  &:hover {
+    background-color: #0c94d9;
+    color: white;
+    cursor: pointer;
+  }
 }
 
 .quantity {
@@ -122,4 +128,11 @@
   box-shadow: 0 0 5px black;
   background-color: #ff5733;
   border: none;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ff2e00;
+    color: white;
+  }
 }

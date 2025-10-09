@@ -1,4 +1,5 @@
 import styles from "./CardCart.module.css";
+import { useState } from "react";
 
 import logo from "../../assets/logo.png";
 import { ImBin } from "react-icons/im";
@@ -13,7 +14,22 @@ interface CardProduct {
 
 export const CardCart = ({ product }: CardProduct) => {
   const imageSrc = useValidatedImage(product.image, logo);
+
   const { setCartProducts } = useCart();
+  const [quantity, setQuantity] = useState(product.quantidade);
+
+  const handleQuantityChange = (newQuantity: number) => {
+    if (newQuantity < 1) {
+      RemoveProduct();
+    } else {
+      setQuantity(newQuantity);
+      setCartProducts((prevProducts) =>
+        prevProducts.map((item) =>
+          item.id === product.id ? { ...item, quantidade: newQuantity } : item
+        )
+      );
+    }
+  };
 
   const RemoveProduct = () => {
     setCartProducts((prevProducts) =>
@@ -32,9 +48,19 @@ export const CardCart = ({ product }: CardProduct) => {
 
           <div className={styles.controlsContainer}>
             <div className={styles.controls}>
-              <div className={styles.quantityControl}>-</div>
-              <p className={styles.quantity}>{product.quantidade}</p>
-              <div className={styles.quantityControl}>+</div>
+              <div
+                className={styles.quantityControl}
+                onClick={() => handleQuantityChange(quantity - 1)}
+              >
+                -
+              </div>
+              <p className={styles.quantity}>{quantity}</p>
+              <div
+                className={styles.quantityControl}
+                onClick={() => handleQuantityChange(quantity + 1)}
+              >
+                +
+              </div>
             </div>
 
             <div
