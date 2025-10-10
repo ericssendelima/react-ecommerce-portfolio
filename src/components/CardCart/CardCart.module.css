@@ -60,6 +60,7 @@
   /* background-color: blueviolet; */
   display: flex;
   padding-left: 0;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 30px;
@@ -73,7 +74,6 @@
   align-items: center;
   padding: 0;
   width: 40%;
-  /* box-shadow: 0 0 10px black; */
   border-radius: 8px;
   height: 30px;
   margin: 0;
@@ -114,6 +114,26 @@
   justify-content: center;
 }
 
+.saibaMais {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  font-size: 10px;
+  font-weight: bold;
+  color: #000000;
+  background-color: #d1afab;
+  width: 65px;
+  height: 16.5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #f1faee;
+  }
+}
+
 .removeButton {
   display: flex;
   justify-content: center;
@@ -136,3 +156,5 @@
     color: white;
   }
 }
+
+

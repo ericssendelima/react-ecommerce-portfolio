@@ -20,8 +20,8 @@ Uma aplicação de e-commerce moderna e responsiva, construída com as tecnologi
 - [x] Página de detalhes do produto.
 - [x] Carrinho de compras funcional.
 - [x] Design totalmente responsivo para desktops, tablets e celulares.
+- [x] Componente de descrição do produto.
 - [ ] Filtro avançado por categoria.
-- [ ] Componente de descrição do produto.
 
 ## 🚀 Tecnologias Utilizadas
 

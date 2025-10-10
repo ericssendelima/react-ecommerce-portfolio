@@ -7,6 +7,7 @@ import { ImBin } from "react-icons/im";
 import type { Product } from "../../types";
 import { useCart } from "../../hooks/useCart";
 import { useValidatedImage } from "../../hooks/useValidatedImage";
+import { Description } from "../Description";
 
 interface CardProduct {
   product: Product;
@@ -17,6 +18,7 @@ export const CardCart = ({ product }: CardProduct) => {
 
   const { setCartProducts } = useCart();
   const [quantity, setQuantity] = useState(product.quantidade);
+  const [openDescription, setOpenDescription] = useState(false);
 
   const handleQuantityChange = (newQuantity: number) => {
     if (newQuantity < 1) {
@@ -37,6 +39,9 @@ export const CardCart = ({ product }: CardProduct) => {
     );
   };
 
+   const Details = () => {
+    setOpenDescription(!openDescription);
+  };
   return (
     <div className={styles.cardCart}>
       <div className={styles.cardBody}>
@@ -62,6 +67,9 @@ export const CardCart = ({ product }: CardProduct) => {
                 +
               </div>
             </div>
+            <span className={styles.saibaMais} onClick={() => Details()}>
+              Descrição
+            </span>
 
             <div
               className={styles.removeButton}
@@ -72,6 +80,12 @@ export const CardCart = ({ product }: CardProduct) => {
           </div>
         </div>
       </div>
+      {openDescription && (
+              <Description
+                product={product}
+                componentControls={{ openDescription, setOpenDescription }}
+              />
+            )}
     </div>
   );
 };

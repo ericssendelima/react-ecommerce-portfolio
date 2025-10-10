@@ -1,10 +1,12 @@
 import styles from "./Card.module.css";
+import { useState } from "react";
 import { MdAddShoppingCart } from "react-icons/md";
 
 import logo from "../../assets/logo.png";
 import type { Product } from "../../types";
 import { useCart } from "../../hooks/useCart";
 import { useValidatedImage } from "../../hooks/useValidatedImage";
+import { Description } from "../Description";
 
 interface CardProps {
   product: Product;
@@ -14,15 +16,16 @@ export const Card = ({ product }: CardProps) => {
   const imageSrc = useValidatedImage(product.image, logo);
 
   const { cartProducts, setCartProducts } = useCart();
+  const [openDescription, setOpenDescription] = useState(false);
 
   const Details = () => {
-    alert("Mais detalhes do produto");
+    setOpenDescription(!openDescription);
   };
 
   const Add = () => {
     setCartProducts([...cartProducts, product]);
   };
-  
+
   return (
     <div className={styles.card}>
       <div className={styles.header}>
@@ -48,6 +51,12 @@ export const Card = ({ product }: CardProps) => {
           </button>
         </div>
       </div>
+      {openDescription && (
+        <Description
+          product={product}
+          componentControls={{ openDescription, setOpenDescription }}
+        />
+      )}
     </div>
   );
 };
