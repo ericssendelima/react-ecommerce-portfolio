@@ -9,28 +9,31 @@ import type { Product } from "../../types";
 
 import { useCart } from "../../hooks/useCart";
 import { onValue, ref, db } from "../../services/firebase";
+import { useProducts } from "../../hooks/useProductsContext";
 
 export const ProductListingPage = () => {
-  const [productsDb, setProductsDb] = useState<Product[]>([]);
-
+  const { products, setProducts } = useProducts();
   const { cartProducts } = useCart();
 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate fetching data from an API
-    if (productsDb.length === 0) {
-    onValue(
-      ref(db, `${import.meta.env.VITE_PERM_ED}/products/`),
-      (snapshot) => {
-        const data = snapshot.val();
-
-        if (data !== undefined) {
-          setProductsDb([...Object.values(data)] as Product[]);
-          setIsLoading(false);
-        }
-      },
-      (error) => alert(error));
+    if (products.length === 0) {
+      onValue(
+        ref(db, `${import.meta.env.VITE_PERM_ED}/products/`),
+        (snapshot) => {
+          const data = snapshot.val();
+          if (data !== undefined) {
+            const teste = Object.values(data) as Product[];
+            console.log("Teste:", teste);
+            setProducts([...Object.values(data)] as Product[]);
+            setIsLoading(false);
+          }
+        },
+        (error) => alert(error)
+      );
+    } else {
+      setIsLoading(false);
     }
   }, []);
 
@@ -40,7 +43,7 @@ export const ProductListingPage = () => {
       <div>
         {!isLoading ? (
           <ol>
-            {productsDb.map(
+            {products.map(
               (product) =>
                 // Only show products that are not already in the cart
                 cartProducts.filter((item) => item.id === product.id).length ===
