@@ -8,14 +8,21 @@ import { ScrollToTopButton } from "../../components/ScrollToTopButton/index";
 import type { Product } from "../../types";
 
 import { useCart } from "../../hooks/useCart";
-import { onValue, ref, db } from "../../services/firebase";
 import { useProducts } from "../../hooks/useProductsContext";
+
+import { onValue, ref, db } from "../../services/firebase";
+import { TbHandClick } from "react-icons/tb";
+import { Categories } from "../../components/Categories";
 
 export const ProductListingPage = () => {
   const { products, setProducts } = useProducts();
   const { cartProducts } = useCart();
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState<boolean>(false);
+  const [filteredItems, setFilteredItems] = useState<Product[]>([]);
+
+
 
   useEffect(() => {
     if (products.length === 0) {
@@ -24,26 +31,47 @@ export const ProductListingPage = () => {
         (snapshot) => {
           const data = snapshot.val();
           if (data !== undefined) {
-            const teste = Object.values(data) as Product[];
-            console.log("Teste:", teste);
             setProducts([...Object.values(data)] as Product[]);
+            setFilteredItems([...Object.values(data)] as Product[]);
             setIsLoading(false);
           }
         },
         (error) => alert(error)
       );
     } else {
+      setFilteredItems(products);
       setIsLoading(false);
     }
   }, []);
 
+  const openCategories = () => {
+    setIsCategoriesOpen(!isCategoriesOpen);
+  };
+
   return (
     <div className={styles.productListingPage}>
       <h1>Catálogo de Produtos</h1>
+
+       {isCategoriesOpen ? (
+        <Categories
+          config={{
+            setFilteredItems,
+            isCategoriesOpen,
+            setIsCategoriesOpen,
+          }}
+        />
+      ) : (
+        <div className={styles.categoriesButton}>
+          <button className={styles.openCategoriesButton} onClick={() => openCategories()}>
+            Categorias <TbHandClick style={{ fontSize: "25px" }} />
+          </button>
+        </div>
+      )}
+
       <div>
         {!isLoading ? (
           <ol>
-            {products.map(
+            {filteredItems.map(
               (product) =>
                 // Only show products that are not already in the cart
                 cartProducts.filter((item) => item.id === product.id).length ===

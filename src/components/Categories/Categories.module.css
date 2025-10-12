@@ -1,0 +1,59 @@
+::-webkit-scrollbar-track-piece {
+  background: rgb(48, 48, 48);
+  cursor: all-scroll;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #77abbd;
+  border: 1px solid rgb(48, 48, 48);
+  border-radius: 10px;
+  cursor: all-scroll;
+}
+
+.categories {
+  width: 80%;
+  height: 60px;
+  overflow-x: scroll;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    background-color: #77abbd;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+    border-radius: 8px;
+    min-width: 150px;
+    height: 30px;
+
+    &:hover {
+      background-color: #5a92a4;
+      color: white;
+    }
+
+    @media (max-width: 650px) {
+      font-size: 12px;
+    }
+  }
+}
+
+/* .filterButton {
+} */
+
+.activeFilter {
+
+  background-color: #28373b !important;
+  color: white  !important;
+
+}
