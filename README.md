@@ -1,10 +1,6 @@
 # React E-commerce Portfolio
 
 [![Vercel](https://img.shields.io/badge/Vercel-live-green?logo=vercel)](https://seu-catalogo-liras.vercel.app/)
-![Status](https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-yellow)
-![GitHub language count](https://img.shields.io/github/languages/count/ericssendelima/react-ecommerce-portfolio)
-![GitHub last commit](https://img.shields.io/github/last-commit/ericssendelima/react-ecommerce-portfolio)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Uma aplicação de e-commerce moderna e responsiva, construída com as tecnologias mais recentes do ecossistema React. Este projeto serve como um portfólio para demonstrar habilidades em desenvolvimento front-end, incluindo gerenciamento de estado, componentização, consumo de APIs e boas práticas de desenvolvimento.
 
@@ -21,7 +17,7 @@ Uma aplicação de e-commerce moderna e responsiva, construída com as tecnologi
 - [x] Carrinho de compras funcional.
 - [x] Design totalmente responsivo para desktops, tablets e celulares.
 - [x] Componente de descrição do produto.
-- [ ] Filtro avançado por categoria.
+- [x] Filtro avançado por categoria.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -66,6 +62,36 @@ VITE_FIREBASE_PROJECT_ID=seu_project_id
 VITE_FIREBASE_STORAGE_BUCKET=seu_storage_bucket
 VITE_FIREBASE_MESSAGING_SENDER_ID=seu_sender_id
 VITE_FIREBASE_APP_ID=seu_app_id
+VITE_PERM_ED=sua_perm_ed (Chave de identificação da aplicação para o Firebase Realtime Database)
+```
+
+> **Estrutura de Dados e Segurança no Firebase**
+>
+> Para aumentar a segurança e controlar o acesso aos dados no Firebase Realtime Database, a estrutura de dados foi aninhada sob uma chave de identificação única da aplicação.
+>
+> O acesso aos dados dos produtos só é permitido à aplicação que fornecer a chave de permissão correta, definida na variável de ambiente `VITE_PERM_ED`. Isso garante que apenas instâncias autorizadas da aplicação possam ler ou modificar os dados no banco de dados.
+
+### Exemplo da estrutura de dados de um produto no Firebase Realtime Database
+
+> A estrutura segue o padrão: /<application_id>/products/<product_id>/<product_data>
+```json
+
+"9284u908j29070872j2u98u":{
+  "products": {
+    "1709724238713": {
+      "categoria": "Limpeza facial",
+      "descricao": "Mais uma opção incrível para você fazer a manutenção de limpeza da sua pele...",
+      "estoque": 2,
+      "id": 1709724238713,
+      "image": "https://i.imgur.com/N6ZMoQT.png",
+      "name": "Tônico facial flor de tília ",
+      "pPago": 2.485,
+      "preco": 14.99
+    },
+    ...demais produtos...
+  }
+}
+```
 
 # 5. Inicie o servidor de desenvolvimento
 npm run dev
@@ -92,3 +118,6 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 --
 
 Feito com ❤️ por Yalê Ericssen
+
+---
+
