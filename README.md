@@ -65,15 +65,52 @@ VITE_FIREBASE_APP_ID=seu_app_id
 VITE_PERM_ED=sua_perm_ed (Chave de identificação da aplicação para o Firebase Realtime Database)
 ```
 
-> **Estrutura de Dados e Segurança no Firebase**
->
-> Para aumentar a segurança e controlar o acesso aos dados no Firebase Realtime Database, a estrutura de dados foi aninhada sob uma chave de identificação única da aplicação.
->
-> O acesso aos dados dos produtos só é permitido à aplicação que fornecer a chave de permissão correta, definida na variável de ambiente `VITE_PERM_ED`. Isso garante que apenas instâncias autorizadas da aplicação possam ler ou modificar os dados no banco de dados.
+# Estrutura de Dados e Segurança no Firebase
 
-### Exemplo da estrutura de dados de um produto no Firebase Realtime Database
+> Para garantir a segurança e o controle de acesso no Firebase Realtime Database, a estrutura de dados é organizada com base no `uid` do usuário autenticado (Firebase Authentication). Cada conjunto de dados de produtos é aninhado sob o `uid` único do usuário proprietário.
+>
+> O desenvolvedor deve obter o `uid` do seu usuário logado no Firebase e configurá-lo na variável de ambiente `VITE_PERM_ED` no arquivo `.env`. Este `uid` será usado pela aplicação para acessar o nó correto no banco de dados.
+>
+> A segurança é reforçada por meio das regras do Realtime Database, que garantem que apenas o usuário autenticado e proprietário dos dados (`auth.uid` correspondente ao `$uid` na URL do banco de dados) possa escrever ou modificar seus próprios produtos.
+>
+> **Regras de Segurança do Firebase Realtime Database:**
+>
+> ```json
+> {
+>   "rules": {
+>     "tracker": {
+>       ".read": "false",
+>       ".write": "false"
+>     },
+>     "$uid":{
+>       ".read": "true",
+>       "products":{
+>         "$products_id":{
+>           ".write": "auth.uid === $uid",
+>           ".validate": "newData.hasChildren(['name', 'id', 'image', 'prodTotal', 'estoque', 'quantidade', 'preco', 'pPago', 'descricao', 'categoria' ])",
+>           "name":{".validate": "true"},
+>           "id":{".validate": "true"},
+>           "image":{".validate": "true"},
+>           "prodTotal":{".validate": "true"},
+>           "estoque":{".validate": "true"},
+>           "quantidade":{".validate": "true"},
+>           "preco":{".validate": "true"},
+>           "pPago":{".validate": "true"},
+>           "categoria":{".validate": "true"},
+>           "descricao":{".validate": "true"},
+>           "$other": {
+>             ".validate": "false"
+>           }
+>         }
+>       }
+>     }    
+>   }
+> }
+> ```
 
-> A estrutura segue o padrão: /<application_id>/products/<product_id>/<product_data>
+## Exemplo da estrutura de dados de um produto no Firebase Realtime Database
+
+> A estrutura segue o padrão: /<uid_user_firebase>/products/<product_id>/<product_data>
 ```json
 
 "9284u908j29070872j2u98u":{
@@ -93,7 +130,8 @@ VITE_PERM_ED=sua_perm_ed (Chave de identificação da aplicação para o Firebas
 }
 ```
 
-# 5. Inicie o servidor de desenvolvimento
+# Inicie o servidor de desenvolvimento
+```bash
 npm run dev
 # ou
 yarn dev
@@ -115,9 +153,6 @@ Contribuições são bem-vindas! Se você tiver sugestões para melhorar este pr
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
---
-
-Feito com ❤️ por Yalê Ericssen
-
 ---
 
+Feito com ❤️ por Yalê Ericssen
